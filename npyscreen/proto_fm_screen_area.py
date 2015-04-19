@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import curses
-import curses.panel
+#import curses.panel
 #import curses.wrapper
 from . import npyspmfuncs as pmfuncs
 import os
