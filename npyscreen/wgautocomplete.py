@@ -30,6 +30,7 @@ class Autocomplete(textbox.Textfield):
         tmp_window.display()
         sel.value=0
         sel.edit()
+        self.parent.display()
         return sel.value
 
 

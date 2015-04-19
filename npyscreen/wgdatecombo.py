@@ -69,6 +69,7 @@ class DateCombo(textbox.Textfield, monthbox.DateEntryBase):
         F.display()
         m.edit()
         self.value = m.value
+        self.parent.display()
         # The following is perhaps confusing.
         #if self.value == _old_date:
         #   self.h_exit_down('')
