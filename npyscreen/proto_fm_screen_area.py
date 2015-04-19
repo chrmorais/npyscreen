@@ -104,7 +104,8 @@ class ScreenArea(object):
             self.columns = self.min_c
 
         #self.area = curses.newpad(self.lines, self.columns)
-        self.curses_pad = curses.newpad(self.lines, self.columns)
+        #self.curses_pad = curses.newpad(self.lines, self.columns)
+        self.curses_pad = curses.newwin(self.lines, self.columns, self.show_aty, self.show_atx)
         #self.max_y, self.max_x = self.lines, self.columns
         self.max_y, self.max_x = self.curses_pad.getmaxyx()
 
@@ -134,6 +135,7 @@ class ScreenArea(object):
         return (mxy-self.BLANK_LINES_BASE, mxx-self.BLANK_COLUMNS_RIGHT)
     
     def refresh(self):
+        assert self.show_from_y == 0 and self.show_from_x == 0
         pmfuncs.hide_cursor()
         _my, _mx = self._max_physical()
         self.curses_pad.move(0,0)
@@ -144,7 +146,8 @@ class ScreenArea(object):
         # Getting strange errors on OS X, with curses sometimes crashing at this point. 
         # Suspect screen size not updated in time. This try: seems to solve it with no ill effects.
         try:
-            self.curses_pad.refresh(self.show_from_y,self.show_from_x,self.show_aty,self.show_atx,_my,_mx)
+            #self.curses_pad.refresh(self.show_from_y,self.show_from_x,self.show_aty,self.show_atx,_my,_mx)
+            self.curses_pad.refresh()
         except curses.error:
             pass
         if self.show_from_y is 0 and \
