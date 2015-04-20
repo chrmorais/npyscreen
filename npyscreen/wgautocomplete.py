@@ -31,7 +31,9 @@ class Autocomplete(textbox.Textfield):
         sel.value=0
         sel.edit()
         self.parent.display()
-        return sel.value
+        if sel.how_exited is True:
+            return sel.value
+        return -1
 
 
 class Filename(Autocomplete):
