@@ -118,7 +118,7 @@ class ScreenArea(object):
             mxy, mxx = struct.unpack('hh', fcntl.ioctl(sys.stderr.fileno(), termios.TIOCGWINSZ, 'xxxx'))
             if (mxy, mxx) == (0,0):
                 raise ValueError
-        except (ValueError, NameError):
+        except (ValueError, NameError, AttributeError):
             mxy, mxx = curses.newwin(0,0).getmaxyx()
 
         # return safe values, i.e. slightly smaller.
