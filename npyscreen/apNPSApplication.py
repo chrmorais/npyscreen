@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import curses
 import locale
-import _curses
+#import _curses
 
 from . import npyssafewrapper
 

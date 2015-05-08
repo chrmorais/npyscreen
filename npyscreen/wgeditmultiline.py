@@ -6,7 +6,7 @@ import sys
 import curses
 import textwrap
 import re
-from functools import reduce
+#from functools import reduce
 
 class MultiLineEdit(widget.Widget):
     _SAFE_STRING_STRIPS_NL = False

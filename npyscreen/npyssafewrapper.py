@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import curses
-import _curses
+#import _curses
 #import curses.wrapper
 import locale
 import os
